@@ -1,0 +1,35 @@
+.accordion {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  padding-right: 88px;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.accordion::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 32px;
+  height: 32px;
+  transform: rotate(180deg);
+  background: url(/arrow.svg) center no-repeat;
+}
+
+.open::after {
+  transform: rotate(0);
+}
+
+.header {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.text {
+  margin-top: 16px;
+  font-size: 16px;
+}

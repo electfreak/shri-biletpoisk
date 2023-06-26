@@ -1,0 +1,19 @@
+.faq {
+  flex-grow: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  color: var(--text-primary);
+}
+
+.header {
+  font-weight: 500;
+  font-size: 32px;
+}

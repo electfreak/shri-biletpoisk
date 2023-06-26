@@ -1,0 +1,8 @@
+.main {
+  padding: 24px 32px;
+  display: flex;
+  flex-grow: 1;
+  gap: 23px;
+  align-items: flex-start;
+  color: var(--text-primary);
+}

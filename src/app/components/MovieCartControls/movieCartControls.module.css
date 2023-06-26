@@ -1,0 +1,36 @@
+.cartControls {
+  margin-left: auto;
+  display: flex;
+  gap: 24px;
+  user-select: none;
+}
+
+.amount {
+  display: flex;
+  gap: 8px;
+}
+
+.cartControls .amount button {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: var(--orange);
+}
+
+.cartControls .amount button:hover {
+  background-color: var(--orange-hover);
+}
+
+.cartControls .amount button:disabled {
+  cursor: not-allowed;
+  background-color: var(--orange-disabled);
+}
+
+
+.plus {
+  background: url(/plus.svg) center / 12px no-repeat;
+}
+
+.minus {
+  background: url(/minus.svg) center / 12px no-repeat;
+}

@@ -1,0 +1,22 @@
+.cart {
+  flex-grow: 1;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.summary {
+  background-color: white;
+  color: var(--text-primary);
+  padding: 24px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount {
+  font-size: 20px;
+  font-weight: 500;
+}

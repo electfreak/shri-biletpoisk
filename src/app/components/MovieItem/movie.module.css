@@ -1,0 +1,33 @@
+.movie {
+  background: white;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 24px;
+  gap: 24px;
+  display: flex;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.genre {
+  font-size: 16px;
+  font-style: italic;
+  line-height: 20px;
+}
+
+.img {
+  position: relative;
+  flex: 0 1 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+}
+
+.movieCard {
+  display: flex;
+  gap: 24px;
+}

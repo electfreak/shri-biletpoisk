@@ -1,0 +1,6 @@
+.removeBtn {
+  width: 20px;
+  height: 20px;
+  background: url(/close.svg) center / 20px transparent;
+  background-color: transparent;
+}

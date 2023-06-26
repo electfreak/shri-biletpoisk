@@ -1,0 +1,19 @@
+.cartIcon {
+  display: flex;
+  color: white;
+  gap: 8px;
+  align-items: center;
+}
+
+
+.counter {
+  min-width: 28px;
+  min-height: 28px;
+  line-height: 20px;
+  text-align: center;
+  background-color: var(--orange);
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
