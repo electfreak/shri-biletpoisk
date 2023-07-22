@@ -54,8 +54,8 @@ export default function Modal({
     <>
       {open &&
         createPortal(
-          <div className={styles.modal}>
-            <div className={styles.alert}>
+          <div className={styles.modal} onClick={() => reject()}>
+            <div className={styles.alert} onClick={e => e.stopPropagation()}>
               <h3 className={styles.header}>{title}</h3>
               <p className={styles.text}>{text}</p>
 
