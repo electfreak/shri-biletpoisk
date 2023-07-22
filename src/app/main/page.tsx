@@ -1,17 +1,29 @@
-import ClientPage from "./clientPage";
+"use client";
 
-import { MovieData, CinemaData } from "@/types/api";
+import Sidebar from "../components/Sidebar/Sidebar";
+import FilterSection from "../components/FilterSection/FilterSection";
 
-export default async function Page() {
-  const movies = (await (
-    await fetch(`${process.env.api_domain}/api/movies`)
-  ).json()) as MovieData[];
+import styles from "./main.module.css";
 
-  const cinemas = (await (
-    await fetch(`${process.env.api_domain}/api/cinemas`)
-  ).json()) as CinemaData[];
+import { useContext, useState } from "react";
+import MovieList from "../components/MovieList/MovieList";
+import { AppDataContext } from "@/appData/context";
+
+export default function Page() {
+  const { cinemas, movies } = useContext(AppDataContext);
+  const [displayMovies, setDisplayMovies] = useState(movies);
 
   return (
-    <ClientPage cinemas={cinemas} movies={movies} />
+    <main className={styles.main}>
+      <Sidebar>
+        <FilterSection
+          cinemas={cinemas}
+          movies={movies}
+          setDisplayMovies={setDisplayMovies}
+        />
+      </Sidebar>
+
+      <MovieList movies={displayMovies} />
+    </main>
   );
 }

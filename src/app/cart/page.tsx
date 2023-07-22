@@ -1,10 +1,53 @@
+"use client";
+import styles from "./cart.module.css";
+
+import Movie from "../components/MovieItem/MovieItem";
+import { CartDataContext } from "@/cart/context";
+import { useContext, useMemo } from "react";
 import { MovieData } from "@/types/api";
-import Page from "./clientPage";
+import { AppDataContext } from "@/appData/context";
 
-const movies = (await (
-  await fetch(`${process.env.api_domain}/api/movies`)
-).json()) as MovieData[];
+export default function Page() {
+  const { movies } = useContext(AppDataContext);
+  const { cart, totalAmount } = useContext(CartDataContext);
 
-export default function Cart() {
-  return <Page movies={movies} />;
+  const movieById = useMemo(() => {
+    const movieById = new Map<string, MovieData>();
+    movies.forEach((m) => movieById.set(m.id, m));
+    return movieById;
+  }, [movies]);
+
+  const moviesInCart = [...cart]
+    .filter(([, amount]) => amount > 0)
+    .map(([movie]) => movie);
+
+  return (
+    <div className={styles.cart}>
+      {moviesInCart.length === 0 && (
+        <div>
+          <h1>Билетов нет :&#40;</h1>{" "}
+          <p>Тыща дел, да и как же без нее девчонки с работы...</p>
+        </div>
+      )}
+
+      <div>
+        {moviesInCart.map((movieId) => {
+          return (
+            <Movie
+              key={movieId}
+              movie={movieById.get(movieId) as MovieData}
+              controlsConfig={{ showControls: true, showRemove: true }}
+            />
+          );
+        })}
+      </div>
+
+      {totalAmount > 0 && (
+        <div className={styles.summary}>
+          <span className={styles.amount}>Итого билетов:</span>
+          <span className={styles.amount}>{totalAmount}</span>
+        </div>
+      )}
+    </div>
+  );
 }
